@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project Details - Portfolio">
+    <title>PROJECT_TITLE - Hubert Kamiński Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/project.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="../index.html" class="header__logo">HUBERT KAMIŃSKI</a>
+                <nav class="header__nav" id="headerNav">
+                    <a href="../index.html#work" class="header__nav-link">Work</a>
+                    <a href="../index.html#about" class="header__nav-link">About</a>
+                    <a href="../index.html#contact" class="header__nav-link">Contact</a>
+                </nav>
+                <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="header__menu-icon">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="header__overlay" id="menuOverlay"></div>
+    </header>
+
+    
+    <section class="project-hero">
+        <div class="container">
+            <a href="../index.html#work" class="project-hero__back">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <div class="project-hero__content">
+                <span class="project-hero__label">PROJECT_LABEL</span>
+                <h1 class="project-hero__title">PROJECT_TITLE</h1>
+                <p class="project-hero__description">PROJECT_DESCRIPTION</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="project-image">
+        <div class="container">
+            <div class="project-image__wrapper">
+                <img src="../assets/images/projects/PROJECT_IMAGE" alt="PROJECT_TITLE" class="project-image__img">
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="project-details">
+        <div class="container">
+            <div class="project-details__content">
+                <div class="project-details__info">
+                    <h2 class="project-details__title">PROJECT INFO</h2>
+                    <div class="project-details__list">
+                        <div class="project-details__item">
+                            <span class="project-details__label">Year</span>
+                            <span class="project-details__value">PROJECT_YEAR</span>
+                        </div>
+                        <div class="project-details__item">
+                            <span class="project-details__label">Role</span>
+                            <span class="project-details__value">PROJECT_ROLE</span>
+                        </div>
+                        PROJECT_CLIENT_ITEM
+                    </div>
+                </div>
+                <div class="project-details__description">
+                    <h2 class="project-details__title">ABOUT THE PROJECT</h2>
+                    <div class="project-details__text">
+                        PROJECT_FULL_DESCRIPTION
+                    </div>
+                    <div class="project-details__links">
+                        PROJECT_LINKS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    PROJECT_GALLERY
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© 2023 Hubert Kamiński</p>
+            </div>
+        </div>
+        <div class="footer__bar"></div>
+    </footer>
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
+
+

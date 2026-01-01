@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Promotional landing page for Adventure Time - Portfolio">
+    <title>Adventure Time Landing Page - Hubert Kamiński Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/project.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="../index.html" class="header__logo">HUBERT KAMIŃSKI</a>
+                <nav class="header__nav" id="headerNav">
+                    <a href="../index.html#work" class="header__nav-link">Work</a>
+                    <a href="../index.html#about" class="header__nav-link">About</a>
+                    <a href="../index.html#contact" class="header__nav-link">Contact</a>
+                </nav>
+                <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="header__menu-icon">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="header__overlay" id="menuOverlay"></div>
+    </header>
+
+    
+    <section class="project-hero">
+        <div class="container">
+            <a href="../index.html#work" class="project-hero__back">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <div class="project-hero__content">
+                <span class="project-hero__label">Conceptual Work</span>
+                <h1 class="project-hero__title">Promotional landing page for our favorite show</h1>
+                <p class="project-hero__description">
+                    A fully responsive promotional webpage for Adventure Time with dynamic content capabilities and integrated newsletter feature.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="project-carousel">
+        <div class="container">
+            <div class="project-carousel__wrapper">
+                <button class="project-carousel__button project-carousel__button--prev" aria-label="Previous image">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="project-carousel__container" tabindex="0" role="region" aria-label="Project image gallery">
+                    <div class="project-carousel__track">
+                        <div class="project-carousel__slide">
+                            <img src="../assets/images/projects/project1.jpg" alt="Adventure Time Landing Page - Main View" class="project-carousel__img">
+                        </div>
+                        <div class="project-carousel__slide">
+                            <img src="../assets/images/projects/project1.jpg" alt="Adventure Time Landing Page - Detail 1" class="project-carousel__img">
+                        </div>
+                        <div class="project-carousel__slide">
+                            <img src="../assets/images/projects/project1.jpg" alt="Adventure Time Landing Page - Detail 2" class="project-carousel__img">
+                        </div>
+                    </div>
+                </div>
+                <button class="project-carousel__button project-carousel__button--next" aria-label="Next image">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="project-carousel__counter">1 / 3</div>
+                <div class="project-carousel__indicators">
+                    <button class="project-carousel__indicator active" aria-label="Go to slide 1"></button>
+                    <button class="project-carousel__indicator" aria-label="Go to slide 2"></button>
+                    <button class="project-carousel__indicator" aria-label="Go to slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="project-details">
+        <div class="container">
+            <div class="project-details__content">
+                <div class="project-details__info">
+                    <h2 class="project-details__title">PROJECT INFO</h2>
+                    <div class="project-details__list">
+                        <div class="project-details__item">
+                            <span class="project-details__label">Year</span>
+                            <span class="project-details__value">2023</span>
+                        </div>
+                        <div class="project-details__item">
+                            <span class="project-details__label">Role</span>
+                            <span class="project-details__value">Front-end Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details__description">
+                    <h2 class="project-details__title">ABOUT THE PROJECT</h2>
+                    <div class="project-details__text">
+                        <p>
+                            Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. This project was a collaborative effort to create an engaging and interactive experience for fans.
+                        </p>
+                        <p>
+                            The website features a fully responsive design that adapts seamlessly across all devices, from mobile phones to desktop computers. I implemented dynamic content capabilities that allow for easy updates and content management.
+                        </p>
+                        <p>
+                            One of the key features is the seamlessly integrated newsletter functionality, which keeps fans updated with the latest adventures and news about the show. The implementation ensures a smooth user experience with proper form validation and user feedback.
+                        </p>
+                        <p>
+                            The project showcases modern front-end development practices, including semantic HTML, CSS Grid and Flexbox for layouts, and vanilla JavaScript for interactivity. All code follows accessibility best practices to ensure the site is usable by everyone.
+                        </p>
+                    </div>
+                    <div class="project-details__links">
+                        <a href="#" class="project-details__link" target="_blank" rel="noopener noreferrer">
+                            LIVE DEMO<i class="fas fa-arrow-up-right"></i>
+                        </a>
+                        <a href="#" class="project-details__link project-details__link--outline" target="_blank" rel="noopener noreferrer">
+                            SEE ON GITHUB<i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© 2023 Hubert Kamiński</p>
+            </div>
+        </div>
+        <div class="footer__bar"></div>
+    </footer>
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/carousel.js"></script>
+</body>
+</html>
+
+
