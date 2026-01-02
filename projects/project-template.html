@@ -24,6 +24,7 @@
                     <span class="header__menu-icon">
                         <span></span>
                         <span></span>
+                        <span></span>
                     </span>
                 </button>
             </div>
@@ -48,8 +49,32 @@
     
     <section class="project-image">
         <div class="container">
-            <div class="project-image__wrapper">
-                <img src="../assets/images/projects/PROJECT_IMAGE" alt="PROJECT_TITLE" class="project-image__img">
+            <div class="project-carousel" role="region" aria-label="Project images carousel">
+                <div class="project-carousel__container">
+                    <div class="project-carousel__slides">
+                        <div class="project-carousel__slide active" aria-hidden="false">
+                            <img src="../assets/images/projects/PROJECT_IMAGE-main.jpg" alt="PROJECT_TITLE - Main View">
+                        </div>
+                        <div class="project-carousel__slide" aria-hidden="true">
+                            <img src="../assets/images/projects/PROJECT_IMAGE-detail.jpg" alt="PROJECT_TITLE - Detail View">
+                        </div>
+                        <div class="project-carousel__slide" aria-hidden="true">
+                            <img src="../assets/images/projects/PROJECT_IMAGE-mobile.jpg" alt="PROJECT_TITLE - Mobile View">
+                        </div>
+                    </div>
+                    <button class="project-carousel__button project-carousel__button--prev" aria-label="Previous image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="project-carousel__button project-carousel__button--next" aria-label="Next image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="project-carousel__indicators" role="tablist" aria-label="Image navigation">
+                        <button class="project-carousel__indicator active" aria-label="Go to image 1" aria-current="true" role="tab"></button>
+                        <button class="project-carousel__indicator" aria-label="Go to image 2" aria-current="false" role="tab"></button>
+                        <button class="project-carousel__indicator" aria-label="Go to image 3" aria-current="false" role="tab"></button>
+                    </div>
+                    <div class="project-carousel__counter">1 / 3</div>
+                </div>
             </div>
         </div>
     </section>
@@ -92,7 +117,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <p class="footer__copyright">© 2023 Hubert Kamiński</p>
+                <p class="footer__copyright">© 2025 Hubert Kamiński</p>
             </div>
         </div>
         <div class="footer__bar"></div>
@@ -101,6 +126,7 @@
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../scripts/main.js"></script>
+    <script src="../scripts/carousel.js"></script>
 </body>
 </html>
 

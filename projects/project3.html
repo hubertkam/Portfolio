@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../styles/project.css">
 </head>
 <body>
-    
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header__content">
@@ -24,6 +24,7 @@
                     <span class="header__menu-icon">
                         <span></span>
                         <span></span>
+                        <span></span>
                     </span>
                 </button>
             </div>
@@ -31,7 +32,7 @@
         <div class="header__overlay" id="menuOverlay"></div>
     </header>
 
-    
+    <!-- Project Hero -->
     <section class="project-hero">
         <div class="container">
             <a href="../index.html#work" class="project-hero__back">
@@ -47,40 +48,40 @@
         </div>
     </section>
 
-    
-    <section class="project-carousel">
+    <!-- Project Image Carousel -->
+    <section class="project-image">
         <div class="container">
-            <div class="project-carousel__wrapper">
-                <button class="project-carousel__button project-carousel__button--prev" aria-label="Previous image">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="project-carousel__container" tabindex="0" role="region" aria-label="Project image gallery">
-                    <div class="project-carousel__track">
-                        <div class="project-carousel__slide">
-                            <img src="../assets/images/projects/project3.jpg" alt="E-commerce Product Page - Main View" class="project-carousel__img">
+            <div class="project-carousel" role="region" aria-label="Project images carousel">
+                <div class="project-carousel__container">
+                    <div class="project-carousel__slides">
+                        <div class="project-carousel__slide active" aria-hidden="false">
+                            <img src="../assets/images/projects/project3-main.jpg" alt="E-commerce Product Page - Main View">
                         </div>
-                        <div class="project-carousel__slide">
-                            <img src="../assets/images/projects/project3.jpg" alt="E-commerce Product Page - Detail 1" class="project-carousel__img">
+                        <div class="project-carousel__slide" aria-hidden="true">
+                            <img src="../assets/images/projects/project1.jpg" alt="E-commerce Product Page - Detail View">
                         </div>
-                        <div class="project-carousel__slide">
-                            <img src="../assets/images/projects/project3.jpg" alt="E-commerce Product Page - Detail 2" class="project-carousel__img">
+                        <div class="project-carousel__slide" aria-hidden="true">
+                            <img src="../assets/images/projects/project2.jpg" alt="E-commerce Product Page - Mobile View">
                         </div>
                     </div>
-                </div>
-                <button class="project-carousel__button project-carousel__button--next" aria-label="Next image">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="project-carousel__counter">1 / 3</div>
-                <div class="project-carousel__indicators">
-                    <button class="project-carousel__indicator active" aria-label="Go to slide 1"></button>
-                    <button class="project-carousel__indicator" aria-label="Go to slide 2"></button>
-                    <button class="project-carousel__indicator" aria-label="Go to slide 3"></button>
+                    <button class="project-carousel__button project-carousel__button--prev" aria-label="Previous image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="project-carousel__button project-carousel__button--next" aria-label="Next image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="project-carousel__indicators" role="tablist" aria-label="Image navigation">
+                        <button class="project-carousel__indicator active" aria-label="Go to image 1" aria-current="true" role="tab"></button>
+                        <button class="project-carousel__indicator" aria-label="Go to image 2" aria-current="false" role="tab"></button>
+                        <button class="project-carousel__indicator" aria-label="Go to image 3" aria-current="false" role="tab"></button>
+                    </div>
+                    <div class="project-carousel__counter">1 / 3</div>
                 </div>
             </div>
         </div>
     </section>
 
-    
+    <!-- Project Details -->
     <section class="project-details">
         <div class="container">
             <div class="project-details__content">
@@ -89,7 +90,7 @@
                     <div class="project-details__list">
                         <div class="project-details__item">
                             <span class="project-details__label">Year</span>
-                            <span class="project-details__value">2022</span>
+                            <span class="project-details__value">2025</span>
                         </div>
                         <div class="project-details__item">
                             <span class="project-details__label">Role</span>
@@ -126,21 +127,20 @@
         </div>
     </section>
 
-    
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <p class="footer__copyright">© 2023 Hubert Kamiński</p>
+                <p class="footer__copyright">© 2025 Hubert Kamiński</p>
             </div>
         </div>
         <div class="footer__bar"></div>
     </footer>
 
-    
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/carousel.js"></script>
 </body>
 </html>
-
 

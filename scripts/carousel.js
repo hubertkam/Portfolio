@@ -1,111 +1,134 @@
+/**
+ * Project Image Carousel
+ * Handles slideshow functionality for project images
+ * Manual navigation only - no autoplay
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    const carousels = document.querySelectorAll('.project-carousel__container');
+    const carousels = document.querySelectorAll('.project-carousel');
     
     carousels.forEach(carousel => {
-        const track = carousel.querySelector('.project-carousel__track');
+        initCarousel(carousel);
+    });
+    
+    function initCarousel(carousel) {
         const slides = carousel.querySelectorAll('.project-carousel__slide');
-        const prevButton = carousel.parentElement.querySelector('.project-carousel__button--prev');
-        const nextButton = carousel.parentElement.querySelector('.project-carousel__button--next');
-        const indicators = carousel.parentElement.querySelectorAll('.project-carousel__indicator');
-        const counter = carousel.parentElement.querySelector('.project-carousel__counter');
-        
-        if (!track || slides.length === 0) return;
-        
-        let currentIndex = 0;
+        const prevButton = carousel.querySelector('.project-carousel__button--prev');
+        const nextButton = carousel.querySelector('.project-carousel__button--next');
+        const indicators = carousel.querySelectorAll('.project-carousel__indicator');
         const totalSlides = slides.length;
         
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
+        if (totalSlides <= 1) {
+            // Hide navigation if only one slide
+            if (prevButton) prevButton.style.display = 'none';
+            if (nextButton) nextButton.style.display = 'none';
+            if (indicators.length > 0) {
+                indicators.forEach(ind => ind.style.display = 'none');
+            }
+            return;
+        }
+        
+        let currentSlide = 0;
+        
+        // Show initial slide
+        showSlide(currentSlide);
+        
+        // Previous button
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
             });
-            
-            if (counter) {
-                counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
-            }
-            
-            if (prevButton) {
-                prevButton.disabled = currentIndex === 0;
-            }
-            if (nextButton) {
-                nextButton.disabled = currentIndex === totalSlides - 1;
-            }
         }
         
-        function nextSlide() {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
+        // Next button
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+            });
         }
         
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
+        // Indicator buttons
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+        
+        // Keyboard navigation
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                goToSlide(currentSlide - 1);
+            } else if (e.key === 'ArrowRight') {
+                goToSlide(currentSlide + 1);
+            }
+        });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    goToSlide(currentSlide + 1);
+                } else {
+                    // Swipe right - previous slide
+                    goToSlide(currentSlide - 1);
+                }
             }
         }
         
         function goToSlide(index) {
-            if (index >= 0 && index < totalSlides) {
-                currentIndex = index;
-                updateCarousel();
+            if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
             }
+            showSlide(currentSlide);
         }
         
-        if (nextButton) {
-            nextButton.addEventListener('click', nextSlide);
-        }
-        
-        if (prevButton) {
-            prevButton.addEventListener('click', prevSlide);
-        }
-        
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => goToSlide(index));
-        });
-        
-        carousel.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                prevSlide();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
-            }
-        });
-        
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        
-        carousel.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-        
-        carousel.addEventListener('touchmove', function(e) {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-        });
-        
-        carousel.addEventListener('touchend', function() {
-            if (!isDragging) return;
-            isDragging = false;
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                slide.setAttribute('aria-hidden', 'true');
+            });
             
-            const diffX = startX - currentX;
-            const threshold = 50;
+            // Show current slide
+            slides[index].classList.add('active');
+            slides[index].setAttribute('aria-hidden', 'false');
             
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    nextSlide();
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.classList.add('active');
+                    indicator.setAttribute('aria-current', 'true');
                 } else {
-                    prevSlide();
+                    indicator.classList.remove('active');
+                    indicator.setAttribute('aria-current', 'false');
                 }
+            });
+            
+            // Update slide counter if exists
+            const counter = carousel.querySelector('.project-carousel__counter');
+            if (counter) {
+                counter.textContent = `${index + 1} / ${totalSlides}`;
             }
-        });
-        
-        updateCarousel();
-        
-        carousel.setAttribute('tabindex', '0');
-    });
+        }
+    }
 });

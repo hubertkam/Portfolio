@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio - Projekty CAD">
-    <title>Hubert Kamiński - Portfolio</title>
+    <meta name="description" content="Hubert Kaminski | Mechanical Engineering Portfolio">
+    <title>Hubert Kaminski | Mechanical Engineering Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -14,7 +14,9 @@
             <div class="header__content">
                 <a href="#home" class="header__logo">HUBERT KAMIŃSKI</a>
                 <nav class="header__nav" id="headerNav">
-                    <a href="#work" class="header__nav-link">Work</a>
+                    <a href="#work" class="header__nav-link">Projects</a>
+                    <a href="#skills" class="header__nav-link">Skills</a>
+                    <a href="#experience" class="header__nav-link">Experience</a>
                     <a href="#about" class="header__nav-link">About</a>
                     <a href="#contact" class="header__nav-link">Contact</a>
                 </nav>
@@ -35,21 +37,23 @@
             <div class="hero__content">
                 <div class="hero__text">
                     <h1 class="hero__title">
-                        <span class="hero__title-small">HI, I AM</span>
+                        <span class="hero__title-small">MECHANICAL ENGINEERING PORTFOLIO</span>
                         <span class="hero__title-large">HUBERT KAMIŃSKI</span>
                     </h1>
-                    <p class="hero__description">
-                        A Sydney based front-end developer passionate about building accessible and user friendly websites.
-                    </p>
+                    <div class="hero__info">
+                        <p class="hero__info-item"><i class="fas fa-map-marker-alt"></i> Sligo, Ireland</p>
+                        <p class="hero__info-item"><i class="fas fa-envelope"></i> <a href="mailto:hubertkaminski2005@gmail.com">hubertkaminski2005@gmail.com</a></p>
+                        <p class="hero__info-item"><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/hubert-kaminski/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hubert-kaminski</a></p>
+                    </div>
                     <div class="hero__actions">
                         <a href="#contact" class="btn btn--primary">
                             CONTACT ME<span class="btn__dot">•</span>
                         </a>
                         <div class="hero__social">
-                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/hubert-kaminski/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="social-icon" aria-label="GitHub">
+                            <a href="https://github.com/hubertkam" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -67,32 +71,32 @@
             <div class="projects__header">
                 <h2 class="section-title">FEATURED PROJECTS</h2>
                 <p class="projects__description">
-                    Here are some of the selected projects that showcase my passion for front-end development.
+                    Here are selected engineering projects that showcase my proficiency in CAD, MATLAB analysis, and mechanical systems design.
                 </p>
             </div>
 
             <div class="projects__list">
                 <article class="project-card">
                     <div class="project-card__image">
-                        <span class="project-card__label">Conceptual Work</span>
+                        <span class="project-card__label">Academic Project</span>
                         <div class="project-card__screenshot">
                             <img src="assets/images/projects/project1.jpg" alt="Adventure Time Landing Page">
                         </div>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">Promotional landing page for our favorite show</h3>
+                        <h3 class="project-card__title">Filament Spool Re-wind Machine with Computational Material Analysis</h3>
                         <p class="project-card__description">
-                            Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.
+                            I designed a desktop-mounted machine for ATU Sligo to solve the high cost of manufacturer-specific filament spools. The system allows the transfer of affordable 3rd-party filament onto proprietary spools. To ensure the reliability of the drive system, I integrated a custom MATLAB analysis module to determine the optimal gear material between PMMA and PLA.
                         </p>
                         <div class="project-card__info">
                             <h4 class="project-card__info-title">PROJECT INFO</h4>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Year</span>
-                                <span class="project-card__info-value">2023</span>
+                                <span class="project-card__info-value">2025</span>
                             </div>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Role</span>
-                                <span class="project-card__info-value">Front-end Developer</span>
+                                <span class="project-card__info-value">Mechanical Design & Analysis</span>
                             </div>
                         </div>
                         <div class="project-card__links">
@@ -104,29 +108,27 @@
 
                 <article class="project-card">
                     <div class="project-card__image">
-                        <span class="project-card__label">Challenge</span>
+                        <span class="project-card__label">Academic Project</span>
                         <div class="project-card__screenshot">
                             <img src="assets/images/projects/project2.jpg" alt="World News Blog">
                         </div>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">Blog site for World News</h3>
+                        <h3 class="project-card__title">Autonomous Taxi </h3>
                         <p class="project-card__description">
-                            Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.
+                            As Team Leader and Lead Programmer, I led a group project to develop a line-following autonomous robot that tracked a black-tape path. I implemented the control logic in C++ within the Arduino environment, integrating tape-sensor input for path following and LiDAR processing for obstacle detection and avoidance to enable reliable navigation of the course.
                         </p>
                         <div class="project-card__info">
                             <h4 class="project-card__info-title">PROJECT INFO</h4>
                             <div class="project-card__info-item">
-                                <span class="project-card__info-label">Client</span>
-                                <span class="project-card__info-value">World News</span>
                             </div>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Year</span>
-                                <span class="project-card__info-value">2022</span>
+                                <span class="project-card__info-value">2024</span>
                             </div>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Role</span>
-                                <span class="project-card__info-value">Front-end Developer</span>
+                                <span class="project-card__info-value">Team Leader & Lead Programmer</span>
                             </div>
                         </div>
                         <div class="project-card__links">
@@ -137,25 +139,25 @@
 
                 <article class="project-card">
                     <div class="project-card__image">
-                        <span class="project-card__label">Challenge</span>
+                        <span class="project-card__label">Personal Project</span>
                         <div class="project-card__screenshot">
                             <img src="assets/images/projects/project3.jpg" alt="E-commerce Product Page">
                         </div>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">E-commerce product page</h3>
+                        <h3 class="project-card__title">Formula Student Tubular Space Frame Chassis</h3>
                         <p class="project-card__description">
-                            Successfully crafted an engaging product page featuring a dynamic lightbox gallery and seamless cart functionality, showcasing proficiency in JavaScript development.
+                            I designed and analyzed a tubular space-frame chassis for a Formula Student car using SolidWorks and Abaqus. The project focused on testing the structural integrity and torsional rigidity of the chassis under simulated loads to ensure it could handle real-world stresses.
                         </p>
                         <div class="project-card__info">
                             <h4 class="project-card__info-title">PROJECT INFO</h4>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Year</span>
-                                <span class="project-card__info-value">2022</span>
+                                <span class="project-card__info-value">2024</span>
                             </div>
                             <div class="project-card__info-item">
                                 <span class="project-card__info-label">Role</span>
-                                <span class="project-card__info-value">Front-end Developer</span>
+                                <span class="project-card__info-value">Mechanical Design & Simulation</span>
                             </div>
                         </div>
                         <div class="project-card__links">
@@ -164,6 +166,98 @@
                         </div>
                     </div>
                 </article>
+
+                <article class="project-card">
+                    <div class="project-card__image">
+                        <span class="project-card__label">Personal Project</span>
+                        <div class="project-card__screenshot">
+                            <img src="assets/images/projects/Project4.JPG" alt="Differential Gear Assembly CAD Model">
+                        </div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Differential Gearbox Motion Analysis</h3>
+                        <p class="project-card__description">
+                            Designed and assembled a differential gearbox in SolidWorks, performing motion analysis to evaluate operational behavior.
+                        </p>
+                        <div class="project-card__info">
+                            <h4 class="project-card__info-title">PROJECT INFO</h4>
+                            <div class="project-card__info-item">
+                                <span class="project-card__info-label">Year</span>
+                                <span class="project-card__info-value">2025</span>
+                            </div>
+                            <div class="project-card__info-item">
+                                <span class="project-card__info-label">Role</span>
+                                <span class="project-card__info-value">CAD Design & Modeling</span>
+                            </div>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="projects/project4.html" class="project-card__link">VIEW PROJECT<i class="fas fa-arrow-up-right"></i></a>
+                            <a href="#" class="project-card__link">SEE ON GITHUB<i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">TECHNICAL SKILLS</h2>
+            <div class="skills__content">
+                <div class="skills__category">
+                    <h3 class="skills__category-title">Design & Simulation (CAD/CAE)</h3>
+                    <ul class="skills__list">
+                        <li class="skills__item"><strong>SolidWorks & CATIA V5:</strong> Proficient</li>
+                        <li class="skills__item"><strong>ANSYS & Abaqus:</strong> Proficient</li>
+                        <li class="skills__item"><strong>Siemens NX, AutoCAD, Fusion 360, & Inventor:</strong> Intermediate</li>
+                    </ul>
+                </div>
+                <div class="skills__category">
+                    <h3 class="skills__category-title">Programming & Analysis</h3>
+                    <ul class="skills__list">
+                        <li class="skills__item"><strong>Languages:</strong> Python, C++, and HTML/CSS</li>
+                        <li class="skills__item"><strong>Technical Tools:</strong> MATLAB/Simulink (Intermediate), FluidSIM, and NI Multisim</li>
+                    </ul>
+                </div>
+                <div class="skills__category">
+                    <h3 class="skills__category-title">Soft Skills</h3>
+                    <ul class="skills__list">
+                        <li class="skills__item"><strong>Communication & Teamwork:</strong> Proven ability to work effectively in team environments</li>
+                        <li class="skills__item"><strong>Problem-Solving:</strong> Detail-oriented with a strong resistance to stress</li>
+                        <li class="skills__item"><strong>Languages:</strong> Native in English and Polish; Beginner (A2) in German</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+            <div class="experience__list">
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <h3 class="experience__title">Engineering Summer Intern</h3>
+                        <span class="experience__company">G. Bruss GmbH Dichtungstechnik</span>
+                        <span class="experience__date">May 2025 – August 2025</span>
+                    </div>
+                    <ul class="experience__description">
+                        <li>Operated and monitored horizontal injection moulding machines to produce automotive components</li>
+                        <li>Set up machines, adjusted parameters, and performed changeovers</li>
+                        <li>Conducted routine maintenance, cleaning, and minor repairs</li>
+                    </ul>
+                </div>
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <h3 class="experience__title">Partner</h3>
+                        <span class="experience__company">balinMotors, Sligo</span>
+                        <span class="experience__date">December 2021 – Present</span>
+                    </div>
+                    <ul class="experience__description">
+                        <li>Managed logistics, customs clearance, and import documentation</li>
+                        <li>Performed routine servicing, maintenance, and inspections on motorbikes</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -171,14 +265,37 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about__content">
-                <h2 class="section-title section-title--left">ABOUT ME</h2>
+                <h2 class="section-title section-title--left">PROFESSIONAL SUMMARY</h2>
                 <div class="about__text">
-                    <h3 class="about__headline">I am a front-end developer based in Sydney.</h3>
-                    <h3 class="about__headline">Has Mechanical Engineering background.</h3>
                     <p class="about__description">
-                        I am a front-end developer based in Sydney looking for exciting opportunities. Has Mechanical Engineering background. Likes to focus on accessibility when developing. Passionate and curious about solving problems. Currently, I'm exploring Reactjs, Webflow and a bit of Designing. While I am not programming, I enjoy playing football, photography and playing Valorant. Learning more to improve skill.
+                        Mechanical Engineering student at ATU Sligo with a strong foundation in technical skills like AutoCAD, SolidWorks, and programming. Experienced in retail, engineering internships, and mechanical work, I am a well-organized team player eager to apply my knowledge in practical environments. Available for internships worldwide.
                     </p>
-                    <a href="#" class="about__link">MORE ABOUT ME</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">TESTIMONIALS</h2>
+            <div class="testimonials__list">
+                <div class="testimonial">
+                    <p class="testimonial__text">
+                        "Hubert proved himself to be a highly motivated and capable team member, showing both initiative and reliability in a demanding production environment. He demonstrated an excellent understanding of machine setup and cycle optimization, and reacted well to troubleshooting issues with minimal supervision."
+                    </p>
+                    <p class="testimonial__author">— Kevin Maguire, Injection Moulding Trainer, BRUSS GmbH Dichtungstechnik</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial__text">
+                        "Hubert's technical skills and attention to detail were evident throughout his time with us. He consistently delivered high-quality work and showed great initiative in solving complex engineering challenges. His ability to work independently while also being an effective team contributor made him a valuable asset to our projects."
+                    </p>
+                    <p class="testimonial__author">— Semus Ltd</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial__text">
+                        "Hubert achieved outstanding results in his Leaving Certificate, scoring 513 points with a H1 grade in Engineering. His exceptional performance demonstrates his strong academic foundation and deep understanding of engineering principles, which he has consistently applied in both academic and professional settings."
+                    </p>
+                    <p class="testimonial__author">— Coola Education</p>
                 </div>
             </div>
         </div>
@@ -191,27 +308,21 @@
                     <h2 class="section-title section-title--left">LET'S CONNECT</h2>
                     <div class="contact__details">
                         <p class="contact__text">
-                            Say hello at <a href="mailto:robertgarcia@gmail.com" class="contact__link">robertgarcia@gmail.com</a>
+                            Say hello at <a href="mailto:hubertkaminski2005@gmail.com" class="contact__link">hubertkaminski2005@gmail.com</a>
                         </p>
                         <p class="contact__text">
-                            For more info, here's my <a href="#" class="contact__link">resume</a>
+                            For more info, here's my <a href="https://www.canva.com/design/DAEuszh8-oc/2TgJGpLQ8vNPICIiBWi22w/view?utm_content=DAEuszh8-oc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=haca578955b" class="contact__link" target="_blank" rel="noopener noreferrer">resume</a>
                         </p>
                     </div>
                     <div class="contact__social">
-                        <a href="#" class="social-icon social-icon--large" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/hubert-kaminski/" class="social-icon social-icon--large" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="social-icon social-icon--large" aria-label="GitHub">
+                        <a href="https://github.com/hubertkam" class="social-icon social-icon--large" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="social-icon social-icon--large" aria-label="Twitter">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon social-icon--large" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
                     </div>
-                    <p class="contact__copyright">© 2023 Hubert Kamiński</p>
+                    <p class="contact__copyright">© 2025 Hubert Kamiński</p>
                 </div>
                 <form class="contact__form" id="contactForm">
                     <div class="form-group">
@@ -239,7 +350,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <p class="footer__copyright">© 2023 Hubert Kamiński</p>
+                <p class="footer__copyright"></p>
             </div>
         </div>
         <div class="footer__bar"></div>
