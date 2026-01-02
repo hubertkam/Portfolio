@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Formula Student Tubular Space Frame Chassis - Portfolio">
-    <title>Formula Student Chassis Design - Hubert Kamiński Portfolio</title>
+    <meta name="description" content="Differential Gearbox Motion Analysis - Portfolio">
+    <title>Differential Gearbox Motion Analysis - Hubert Kamiński Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/project.css">
@@ -40,9 +40,9 @@
             </a>
             <div class="project-hero__content">
                 <span class="project-hero__label">Personal Project</span>
-                <h1 class="project-hero__title">Formula Student Tubular Space Frame Chassis</h1>
+                <h1 class="project-hero__title">Differential Gearbox Motion Analysis</h1>
                 <p class="project-hero__description">
-                    CAD & FEA Engineering Analysis
+                    CAD Design & Motion Study
                 </p>
             </div>
         </div>
@@ -55,10 +55,7 @@
                 <div class="project-carousel__container">
                     <div class="project-carousel__slides">
                         <div class="project-carousel__slide active" aria-hidden="false">
-                            <img src="../assets/images/projects/project3.jpg" alt="Formula Student Chassis - View 1">
-                        </div>
-                        <div class="project-carousel__slide" aria-hidden="true">
-                            <img src="../assets/images/projects/project3-2.JPG" alt="Formula Student Chassis - View 2">
+                            <img src="../assets/images/projects/Project4.JPG" alt="Differential Gearbox - View 1">
                         </div>
                     </div>
                     <button class="project-carousel__button project-carousel__button--prev" aria-label="Previous image">
@@ -69,9 +66,8 @@
                     </button>
                     <div class="project-carousel__indicators" role="tablist" aria-label="Image navigation">
                         <button class="project-carousel__indicator active" aria-label="Go to image 1" aria-current="true" role="tab"></button>
-                        <button class="project-carousel__indicator" aria-label="Go to image 2" aria-current="false" role="tab"></button>
                     </div>
-                    <div class="project-carousel__counter">1 / 2</div>
+                    <div class="project-carousel__counter">1 / 1</div>
                 </div>
             </div>
         </div>
@@ -90,11 +86,11 @@
                         </div>
                         <div class="project-details__item">
                             <span class="project-details__label">Role</span>
-                            <span class="project-details__value">CAD & FEA Engineer</span>
+                            <span class="project-details__value">CAD Design & Motion Analysis</span>
                         </div>
                         <div class="project-details__item">
                             <span class="project-details__label">Tools</span>
-                            <span class="project-details__value">SolidWorks, Abaqus</span>
+                            <span class="project-details__value">SolidWorks</span>
                         </div>
                     </div>
                 </div>
@@ -102,27 +98,22 @@
                     <h2 class="project-details__title">PROJECT SUMMARY</h2>
                     <div class="project-details__text">
                         <p>
-                            Modelled an existing Formula Student tubular space-frame chassis in SolidWorks and ran a basic structural check in Abaqus. The aim was not full optimisation, but to verify torsional rigidity and confirm the design was structurally reasonable.
+                            Designed and assembled a differential gearbox in SolidWorks and carried out a basic motion study to verify correct kinematics. The project focused on confirming gear relationships, rotational directions, and speed ratios rather than detailed stress or durability analysis.
                         </p>
                         
                         <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Design & Modelling</h3>
                         <p>
-                            Rebuilt the chassis geometry from a reference design in SolidWorks with correct tube sizes and joint layouts. Cleaned up geometry and fixed unrealistic connections that would distort FEA results.
+                            Created individual gearbox components and assembled them with correct mates and constraints. Ensured gear geometry, alignment, and clearances were consistent with standard differential layouts.
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Analysis</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Motion Analysis</h3>
                         <p>
-                            Applied a simplified torsional load case in Abaqus to estimate chassis stiffness. Checked torsional rigidity against typical Formula Student ranges (~1,500–3,000 Nm/deg) to ensure results were realistic. Verified stresses stayed below yield and that no members showed obvious failure or numerical artefacts.
-                        </p>
-                        
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Iteration</h3>
-                        <p>
-                            Identified weak or overstressed areas, made minor geometry changes, and re-ran the analysis to confirm acceptable stiffness and stress levels.
+                            Set up a SolidWorks motion study to observe input–output behaviour of the differential. Verified correct power split, relative wheel speeds during straight-line motion and differential action under simulated speed differences.
                         </p>
                         
                         <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Outcome</h3>
                         <p>
-                            Confirmed the chassis was structurally acceptable under simplified torsional loading. Demonstrated correct CAD-to-FEA workflow and the ability to sanity-check results against known engineering benchmarks.
+                            Confirmed correct functional behaviour of the differential gearbox with no interference or kinematic errors. Demonstrated the ability to model mechanical assemblies accurately and use motion analysis to validate system behaviour at an early design stage.
                         </p>
                     </div>
                     <div class="project-details__links">
