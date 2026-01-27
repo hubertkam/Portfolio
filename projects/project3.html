@@ -101,28 +101,44 @@
                 <div class="project-details__description">
                     <h2 class="project-details__title">PROJECT SUMMARY</h2>
                     <div class="project-details__text">
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Objective</h3>
                         <p>
-                            Modelled an existing Formula Student tubular space-frame chassis in SolidWorks and ran a basic structural check in Abaqus. The aim was not full optimisation, but to verify torsional rigidity and confirm the design was structurally reasonable.
+                            Model and evaluate a Formula Student tubular space-frame chassis using CAD and FEA.
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Design & Modelling</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Tools / Software</h3>
                         <p>
-                            Rebuilt the chassis geometry from a reference design in SolidWorks with correct tube sizes and joint layouts. Cleaned up geometry and fixed unrealistic connections that would distort FEA results.
+                            SolidWorks
+                        </p>
+                        <p>
+                            Abaqus
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Analysis</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Method</h3>
                         <p>
-                            Applied a simplified torsional load case in Abaqus to estimate chassis stiffness. Checked torsional rigidity against typical Formula Student ranges (~1,500–3,000 Nm/deg) to ensure results were realistic. Verified stresses stayed below yield and that no members showed obvious failure or numerical artefacts.
+                            The chassis was modelled in SolidWorks.
+                        </p>
+                        <p>
+                            Geometry was simplified to allow realistic FEA boundary conditions.
+                        </p>
+                        <p>
+                            Torsional load cases were applied in Abaqus.
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Iteration</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Key Results</h3>
                         <p>
-                            Identified weak or overstressed areas, made minor geometry changes, and re-ran the analysis to confirm acceptable stiffness and stress levels.
+                            Estimated torsional stiffness within typical Formula Student ranges (~1,500–3,000 Nm/deg).
+                        </p>
+                        <p>
+                            High-stress regions were identified at specific joints.
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Outcome</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Conclusion</h3>
                         <p>
-                            Confirmed the chassis was structurally acceptable under simplified torsional loading. Demonstrated correct CAD-to-FEA workflow and the ability to sanity-check results against known engineering benchmarks.
+                            The chassis showed acceptable stiffness for a basic design.
+                        </p>
+                        <p>
+                            Local reinforcement would reduce stress concentrations.
                         </p>
                     </div>
 

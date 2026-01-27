@@ -113,69 +113,48 @@
                 <div class="project-details__description">
                     <h2 class="project-details__title">PROJECT SUMMARY</h2>
                     <div class="project-details__text">
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Objective</h3>
                         <p>
-                            Designed a compact, desktop-mounted filament re-wind machine for ATU Sligo to eliminate dependence on high-cost manufacturer-specific 3D-printer spools. The system enables low-cost third-party filament to be accurately transferred onto proprietary spools while maintaining controlled tension and uniform winding.
+                            Design a desktop machine to transfer third-party filament onto proprietary 3D-printer spools while maintaining controlled tension.
                         </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Mechanical Design</h3>
-                        <ul style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md);">
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Integrated a 25 W Oriental Motor induction motor (4IK25GN-CW2TE) with a 120:1 gearhead (4GN120RA) to deliver high torque at low speed.
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Designed the gear-driven power transmission and structural layout for a minimal footprint and desktop mounting.
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Developed a mechanically linked reciprocating filament guide to ensure even filament distribution across the spool width.
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Designed all components for manufacturability and compatibility with standard off-the-shelf bearings and gears.
-                            </li>
-                        </ul>
-                        
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Engineering Analysis (MATLAB)</h3>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Tools / Software</h3>
                         <p>
-                            Built a custom MATLAB tool to evaluate gear tooth bending failure using the Lewis bending equation with realistic load factors. Compared PMMA vs PLA gears under identical geometry and loading conditions.
+                            SolidWorks
                         </p>
                         <p>
-                            <strong>Analysis Results:</strong>
+                            MATLAB
                         </p>
-                        <ul style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md);">
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                PMMA max torque before bending failure: ~63.4 N·m
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                PLA max torque before bending failure: ~52.9 N·m
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                ~20% higher torque capacity for PMMA
-                            </li>
-                        </ul>
+                        
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Method</h3>
                         <p>
-                            PMMA was selected to provide sufficient margin during high-torque motor start-up.
+                            A 25 W motor with a 120:1 gear reduction was selected to provide low speed and high torque.
+                        </p>
+                        <p>
+                            The mechanical layout was designed to maintain consistent filament tension during winding.
+                        </p>
+                        <p>
+                            Gear bending strength was analysed in MATLAB using the Lewis bending equation for PMMA and PLA gears.
                         </p>
                         
-                        <div style="margin: var(--spacing-xl) 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
-                            <div>
-                                <img src="../assets/images/projects/Bending%20stress%20vs%20torque%20UTS.jpg" alt="MATLAB Analysis: Bending Stress vs Applied Torque" style="width: 100%; height: auto; border-radius: var(--radius-md); display: block;">
-                            </div>
-                            <div>
-                                <img src="../assets/images/projects/Max%20torque%20before%20break.jpg" alt="MATLAB Analysis: Torque Comparison PMMA vs PLA" style="width: 100%; height: auto; border-radius: var(--radius-md); display: block;">
-                            </div>
-                        </div>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Key Results</h3>
+                        <p>
+                            PMMA gear bending capacity ≈ 63.4 N·m
+                        </p>
+                        <p>
+                            PLA gear bending capacity ≈ 52.9 N·m
+                        </p>
+                        <p>
+                            PMMA showed ~20% higher bending strength for identical geometry.
+                        </p>
                         
-                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Outcome</h3>
-                        <ul style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md);">
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Delivered a mechanically robust, low-cost solution aligned with university maintenance constraints.
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Replaced subjective material choice with quantitative, simulation-backed engineering justification.
-                            </li>
-                            <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-                                Demonstrated end-to-end ownership: concept → CAD → mechanical analysis → design decision.
-                            </li>
-                        </ul>
+                        <h3 class="project-details__subtitle" style="font-size: var(--font-size-lg); font-weight: 600; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-text-primary);">Conclusion</h3>
+                        <p>
+                            PMMA was the stronger material for this application.
+                        </p>
+                        <p>
+                            The final design provides consistent winding and sufficient torque for desktop operation.
+                        </p>
                     </div>
 
                 </div>

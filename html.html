@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ATU Timetable - This Week</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background:#f6f6f6; }
+    h1 { margin-bottom: 6px; }
+    .meta { color:#444; margin-bottom: 16px; }
+    .card {
+      background: white; padding: 14px; margin: 10px 0;
+      border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .time { font-weight: 700; }
+    .title { font-size: 18px; margin-top: 4px; }
+    .small { color:#555; margin-top: 6px; }
+    .empty { padding: 14px; background:#fff; border-radius:10px; }
+  </style>
+</head>
+<body>
+  <h1>ATU Timetable (This Week)</h1>
+  <div class="meta" id="range"></div>
+  <div id="events"></div>
+
+<script>
+  function getWeekRange(date = new Date()) {
+    const d = new Date(date);
+    const day = (d.getDay() + 6) % 7; // Monday=0
+    const monday = new Date(d);
+    monday.setDate(d.getDate() - day);
+    monday.setHours(0,0,0,0);
+
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    sunday.setHours(23,59,59,999);
+
+    return { monday, sunday };
+  }
+
+  function parseICSDate(value) {
+    // supports: 20260119T160000 or 20260119T160000Z
+    const v = value.trim();
+    const year = +v.slice(0,4);
+    const month = +v.slice(4,6) - 1;
+    const day = +v.slice(6,8);
+    const hour = +v.slice(9,11);
+    const min = +v.slice(11,13);
+    const sec = +v.slice(13,15);
+    return new Date(year, month, day, hour, min, sec);
+  }
+
+  function parseICS(text) {
+    const lines = text.replace(/\r/g, "").split("\n");
+    const events = [];
+    let current = null;
+
+    for (const line of lines) {
+      if (line === "BEGIN:VEVENT") current = {};
+      else if (line === "END:VEVENT") { if (current) events.push(current); current = null; }
+      else if (current) {
+        const [rawKey, ...rest] = line.split(":");
+        const value = rest.join(":");
+        const key = rawKey.split(";")[0];
+
+        if (key === "SUMMARY") current.summary = value;
+        if (key === "LOCATION") current.location = value;
+        if (key === "DESCRIPTION") current.description = value.replace(/\\n/g, "\n");
+        if (key === "DTSTART") current.dtstart = parseICSDate(value);
+        if (key === "DTEND") current.dtend = parseICSDate(value);
+      }
+    }
+    return events;
+  }
+
+  function fmtDate(d) {
+    return d.toLocaleString(undefined, {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  }
+
+  async function main() {
+    const { monday, sunday } = getWeekRange(new Date());
+
+    document.getElementById("range").textContent =
+      `Week: ${monday.toDateString()} → ${sunday.toDateString()}`;
+
+    const res = await fetch("./atu.ics");
+    const text = await res.text();
+
+    const allEvents = parseICS(text);
+
+    const thisWeek = allEvents.filter(e =>
+      e.dtstart && e.dtend &&
+      e.dtstart >= monday && e.dtstart <= sunday
+    ).sort((a,b) => a.dtstart - b.dtstart);
+
+    const container = document.getElementById("events");
+
+    if (thisWeek.length === 0) {
+      container.innerHTML = `<div class="empty">No classes found for this week.</div>`;
+      return;
+    }
+
+    container.innerHTML = thisWeek.map(e => `
+      <div class="card">
+        <div class="time">${fmtDate(e.dtstart)} → ${fmtDate(e.dtend)}</div>
+        <div class="title">${e.summary || "Untitled"}</div>
+        <div class="small"><b>Location:</b> ${e.location || "Unknown"}</div>
+      </div>
+    `).join("");
+  }
+
+  main();
+</script>
+</body>
+</html>
