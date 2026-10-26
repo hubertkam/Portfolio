@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D multibody dynamics simulator · Hubert Kamiński</title>
+  <meta name="description" content="A 2D rigid-body dynamics engine written from scratch in MATLAB, validated on pendulums and chains to under one part in a billion energy drift.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2D multibody dynamics simulator · Hubert Kamiński">
+  <meta property="og:description" content="A 2D rigid-body dynamics engine written from scratch in MATLAB, validated on pendulums and chains to under one part in a billion energy drift.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/project.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../index.html">Hubert Kamiński</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <a class="back-link" href="../index.html#other-projects">All projects</a>
+
+    <section class="project-sheet sheet" aria-labelledby="project-title">
+      <div class="sheet__frame">
+        <div class="project-sheet__head">
+          <h1 class="project-sheet__title" id="project-title">2D multibody dynamics simulator</h1>
+          <p class="project-sheet__lede">A rigid-body dynamics engine I wrote from scratch in MATLAB. It builds the equations of motion for any 2D mechanism of bodies and joints, solves them and animates the result.</p>
+        </div>
+        <figure class="project-sheet__figure">
+          <video controls muted loop playsinline preload="metadata" width="900" height="650" poster="../assets/images/projects/o-multibody-chain.jpg" aria-label="Animation of the four-link pendulum chain"><source src="../assets/images/projects/o-multibody-chain.mp4" type="video/mp4"></video>
+        </figure>
+        <dl class="tblock">
+          <div class="tblock__cell"><dt>Type</dt><dd>Personal</dd></div>
+          <div class="tblock__cell"><dt>Year</dt><dd>2026</dd></div>
+          <div class="tblock__cell"><dt>Tools</dt><dd>MATLAB, ode113</dd></div>
+          <div class="tblock__cell"><dt>Energy drift</dt><dd>under 1 part in 10<sup>9</sup></dd></div>
+          <div class="tblock__cell"><dt>Sheet</dt><dd>Other project</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <article class="writeup">
+      <h2>What it does</h2>
+      <p>I wanted to understand how simulation packages like SolidWorks Motion work underneath, so I wrote my own 2D multibody dynamics engine in MATLAB. You describe a mechanism as rigid bodies and joints; the code assembles its equations of motion, integrates them and animates the result, with an optional MP4 export.</p>
+
+      <h2>How it works</h2>
+      <p>Each body has three coordinates (x, y and rotation) and a mass matrix. Joints are written as constraint equations: revolute joints pin two bodies together, prismatic joints let a body slide along an axis, and loop-closure joints close a chain back on itself, which is what four-bar and crank-slider linkages need. The engine stacks the mass matrix and constraint Jacobian into one system and solves it for accelerations and constraint forces at every step.</p>
+      <p>Solving for accelerations alone lets the joints slowly drift apart, so I used Baumgarte stabilisation (α&nbsp;=&nbsp;β&nbsp;=&nbsp;20), which pulls the constraints back to zero. The equations are integrated with MATLAB’s ode113 at tight tolerances (relative 10<sup>−10</sup>, absolute 10<sup>−12</sup>).</p>
+      <figure class="fig">
+        <div class="fig__frame"><video controls muted loop playsinline preload="none" width="900" height="650" poster="../assets/images/projects/o-multibody-double.jpg" aria-label="Animation of the double pendulum"><source src="../assets/images/projects/o-multibody-double.mp4" type="video/mp4"></video></div>
+        <figcaption><span class="fig__num">Fig. 1</span> A double pendulum, 8 simulated seconds. The dashed line traces the tip; the readout shows energy and constraint error live.</figcaption>
+      </figure>
+
+      <h2>Validation</h2>
+      <p>A pendulum with no friction should keep its total energy forever, so energy drift is a direct measure of how accurate the solver is. I ran four test cases for 8 simulated seconds each: a single pendulum, a double pendulum, a three-body pendulum and a four-link chain. In every case, energy drifted by less than one part in a billion (worst case 9.5&nbsp;×&nbsp;10<sup>−10</sup>), and the joints stayed together to within about 3&nbsp;×&nbsp;10<sup>−11</sup>.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-multibody-energy.png"><img src="../assets/images/projects/o-multibody-energy.png" width="1280" height="672" loading="lazy" alt="Log-scale chart of relative energy drift against time for four pendulum cases, all staying below one part in a billion"></a>
+        <figcaption><span class="fig__num">Fig. 2</span> Energy drift over 8 simulated seconds for all four test cases, from the CSV logs the engine writes. All stay below one part in a billion.</figcaption>
+      </figure>
+
+      <h2>Gravity and collisions</h2>
+      <p>I then added a second mode for bodies attracting each other under gravity, using the same integrator. It detects collisions with an ode113 event function that stops the run when two bodies touch, and I used it for two-planet collisions, orbits that decay into a collision, and a chaotic three-body system.</p>
+      <figure class="fig">
+        <div class="fig__frame"><video controls muted loop playsinline preload="none" width="1000" height="700" poster="../assets/images/projects/o-multibody-threebody.jpg" aria-label="Animation of three bodies orbiting under gravity"><source src="../assets/images/projects/o-multibody-threebody.mp4" type="video/mp4"></video></div>
+        <figcaption><span class="fig__num">Fig. 3</span> A chaotic three-body system under gravity.</figcaption>
+      </figure>
+
+      <h2>What I learned</h2>
+      <p>Writing the solver myself made the theory concrete: why constraint drift happens and how stabilisation fixes it, why stiff tolerances matter for energy conservation, and how a loop-closure joint turns an open chain into a linkage. Next I would like to add friction, springs and dampers, and validate a four-bar linkage against a SolidWorks motion study.</p>
+    </article>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="../index.html#other-projects"><span class="pager__label">Back to</span><span class="pager__title">All projects</span></a>
+      <a href="step-counter.html"><span class="pager__label">Another project</span><span class="pager__title">Micro:bit step counter</span></a>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" aria-label="Enlarged figure">
+    <img alt="">
+    <div class="lightbox__bar">
+      <p class="lightbox__caption"></p>
+      <button class="lightbox__close" type="button">Close</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span data-year>2026</span> Hubert Kamiński</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

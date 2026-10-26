@@ -58,3 +58,6 @@ a.fig__frame:hover { border-color: var(--redline); }
   .pager { grid-template-columns: minmax(0, 1fr); }
   .pager a + a { border-left: 0; border-top: 1px solid var(--ink); text-align: left; }
 }
+
+/* Video figures */
+.fig__frame video, .project-sheet__figure video { display: block; width: 100%; height: auto; background: var(--sheet); }

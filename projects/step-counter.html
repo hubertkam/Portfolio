@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Micro:bit step counter with Python analysis · Hubert Kamiński</title>
+  <meta name="description" content="A micro:bit step counter with Python data validation, trend prediction and a wellbeing scoring model, for Leaving Certificate Computer Science.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Micro:bit step counter with Python analysis · Hubert Kamiński">
+  <meta property="og:description" content="A micro:bit step counter with Python data validation, trend prediction and a wellbeing scoring model, for Leaving Certificate Computer Science.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/project.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../index.html">Hubert Kamiński</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <a class="back-link" href="../index.html#other-projects">All projects</a>
+
+    <section class="project-sheet sheet" aria-labelledby="project-title">
+      <div class="sheet__frame">
+        <div class="project-sheet__head">
+          <h1 class="project-sheet__title" id="project-title">Micro:bit step counter with Python analysis</h1>
+          <p class="project-sheet__lede">A step counter built on a micro:bit, with a Python program that validates the logged data, predicts step trends and scores sleep, mood and activity to give wellbeing advice.</p>
+        </div>
+        <figure class="project-sheet__figure">
+          <img src="../assets/images/projects/o-microbit-code.png" width="715" height="535" alt="MakeCode block program for the micro:bit step counter">
+        </figure>
+        <dl class="tblock">
+          <div class="tblock__cell"><dt>Type</dt><dd>Leaving Certificate Computer Science</dd></div>
+          <div class="tblock__cell"><dt>Year</dt><dd>2024</dd></div>
+          <div class="tblock__cell"><dt>Tools</dt><dd>micro:bit, MakeCode, Python, NumPy, pandas, Matplotlib</dd></div>
+          <div class="tblock__cell"><dt>Sheet</dt><dd>Other project</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <article class="writeup">
+      <h2>The brief</h2>
+      <p>My Leaving Certificate Computer Science project brief asked for an embedded system that improves some part of wellbeing, plus a computer model that gives insight into it. Research showed the average person in Ireland takes about 5,444 steps a day against the 10,000 often recommended, and a survey of my class found most students walked around 6,000. So I built a step counter that encourages people to walk more, with a Python program that analyses the data and gives advice on sleep and mood as well.</p>
+
+      <h2>The step counter</h2>
+      <p>The micro:bit counts steps with its accelerometer over a 24-hour period. If the user reaches 5,000 steps it congratulates them; if not, it tells them to keep walking. It also sends each step with a timestamp to a laptop, where it is saved as a CSV file.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-flowchart.png"><img src="../assets/images/projects/o-steps-flowchart.png" width="504" height="511" loading="lazy" alt="Flowchart: start step counter, set a 24 hour timer, count steps, then check whether 5000 steps were reached"></a>
+        <figcaption><span class="fig__num">Fig. 1</span> Flowchart of the step counter logic.</figcaption>
+      </figure>
+
+      <h2>Analysing the data in Python</h2>
+      <p>The Python program first validates the CSV, checking every row is in the right format before it is used. It then fits a straight line to steps against time with NumPy and uses it to predict the step count at a time the user enters. It also reports the minimum, maximum and average.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-trend.png"><img src="../assets/images/projects/o-steps-trend.png" width="1120" height="640" loading="lazy" alt="Chart of logged steps against time with a dashed linear fit and a predicted point at 150 seconds"></a>
+        <figcaption><span class="fig__num">Fig. 2</span> My program’s step trend and prediction, re-run on the sample log from testing (12 steps over 103 seconds).</figcaption>
+      </figure>
+
+      <h2>Wellbeing model</h2>
+      <p>The second part asks how many hours the user slept, how many steps they took and how happy they feel from 1 to 10. It rejects impossible answers, scores each category, and gives advice: sleep more, do something you enjoy, or take a walk. The same scoring answers “what if” questions, for example how the score changes with an extra two hours of sleep. To test it on more data, I wrote a generator for random wellbeing datasets, and the program scores every entry and charts which category is weakest.</p>
+      <div class="fig-pair">
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-flowchart-advanced.png"><img src="../assets/images/projects/o-steps-flowchart-advanced.png" width="450" height="420" loading="lazy" alt="Flowchart: ask about happiness, sleep and steps, validate the input, calculate a score and give advice"></a>
+        <figcaption><span class="fig__num">Fig. 3</span> Flowchart of the wellbeing model.</figcaption>
+      </figure>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-scores.png"><img src="../assets/images/projects/o-steps-scores.png" width="1120" height="640" loading="lazy" alt="Bar chart of total scores: sleep 161, happiness 72, steps 180"></a>
+        <figcaption><span class="fig__num">Fig. 4</span> Total scores by category across a 50-entry random dataset, re-run with my scoring code. Happiness comes out weakest.</figcaption>
+      </figure>
+      </div>
+
+      <h2>Looking back</h2>
+      <p>Re-running the code for this page, I found a bug in the scoring: values just below the top band score zero (7–8 hours of sleep, happiness of 7–8, and 7,000–8,000 steps), because each check uses “less than” and “greater than” but nothing covers the range in between. That is part of why happiness looks so weak in Figure 4. Today I would close those gaps, weight sleep and happiness above step count, and test the edge cases properly.</p>
+    </article>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="../index.html#other-projects"><span class="pager__label">Back to</span><span class="pager__title">All projects</span></a>
+      <a href="multibody.html"><span class="pager__label">Another project</span><span class="pager__title">2D multibody dynamics simulator</span></a>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" aria-label="Enlarged figure">
+    <img alt="">
+    <div class="lightbox__bar">
+      <p class="lightbox__caption"></p>
+      <button class="lightbox__close" type="button">Close</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span data-year>2026</span> Hubert Kamiński</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>
