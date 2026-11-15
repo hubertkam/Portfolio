@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neural network driving in BeamNG · Hubert Kamiński</title>
+  <meta name="description" content="A MATLAB and Python driving experiment with a trained CNN, vehicle control, recorded neural activations and BeamNG.tech testing.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Neural network driving in BeamNG · Hubert Kamiński">
+  <meta property="og:description" content="A MATLAB and Python driving experiment with a trained CNN, vehicle control, recorded neural activations and BeamNG.tech testing.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/project.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../index.html">Hubert Kamiński</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <a class="back-link" href="../index.html#projects">All projects</a>
+    <section class="project-sheet sheet" aria-labelledby="project-title">
+      <div class="sheet__frame">
+        <div class="project-sheet__head">
+          <h1 class="project-sheet__title" id="project-title">Neural network driving in BeamNG</h1>
+          <p class="project-sheet__lede">Training a steering network, connecting it to a vehicle simulator, and measuring what happens on track.</p>
+        </div>
+        <figure class="project-sheet__figure"><img src="../assets/images/projects/mondello/overview.png" width="1280" height="900" alt="Recorded driving dashboard with camera images, CNN activations and telemetry"></figure>
+        <dl class="tblock">
+          <div class="tblock__cell"><dt>Type</dt><dd>Personal</dd></div>
+          <div class="tblock__cell"><dt>Year</dt><dd>November 2026</dd></div>
+          <div class="tblock__cell"><dt>My role</dt><dd>Training, integration and testing</dd></div>
+          <div class="tblock__cell"><dt>Tools</dt><dd>MATLAB, Python, BeamNG.tech</dd></div>
+        </dl>
+      </div>
+    </section>
+    <article class="writeup">
+      <h2>Objective</h2>
+      <p>I wanted to take a neural network beyond an offline prediction and connect it to a moving vehicle. I used an ETK800 on Mondello Park in BeamNG.tech, with MATLAB handling network training and inference, and Python handling simulator communication, vehicle control and logging.</p>
+      <p><a href="../assets/reports/Mondello_Technical_Report.pdf">Read the full technical report (PDF)</a> &middot; <a href="mondello-replay.html">Open the interactive neural replay</a></p>
+      <h2>Recorded results</h2>
+      <dl class="tblock tblock--boxed">
+        <div class="tblock__cell"><dt>Peak speed</dt><dd>104.79 km/h</dd></div>
+        <div class="tblock__cell"><dt>Distance</dt><dd>1,550.6 m</dd></div>
+        <div class="tblock__cell"><dt>Duration</dt><dd>90 simulated seconds</dd></div>
+        <div class="tblock__cell"><dt>Reported damage</dt><dd>0</dd></div>
+      </dl>
+      <p>The latest recorded section completed all 900 control actions and saved 90 neural activation snapshots. Repeatability was also demonstrated in an earlier release, which completed three full laps with zero damage and a mean simulated lap time of 193.9 seconds. These are separate test configurations.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/mondello/preview.gif"><img src="../assets/images/projects/mondello/preview.gif" width="1280" height="900" loading="lazy" alt="Accelerated replay showing the vehicle camera, neural responses, steering and speed"></a>
+        <figcaption><span class="fig__num">Fig. 1.</span> Recorded driving and neural activity. The preview runs at approximately five times simulated speed.</figcaption>
+      </figure>
+      <h2>Training and control</h2>
+      <p>I collected driving demonstrations and iterated through imitation learning, correction data and recovery training. The loaded network has 723,993 learnable parameters. Four convolutional stages extract image features from a 66 &times; 200 RGB camera crop. Those features are combined with vehicle speed to predict steering.</p>
+      <p>The integrated controller combines a geometric reference path with a bounded neural steering correction. Python captures the camera and vehicle state, MATLAB returns a prediction, and the controller applies steering, throttle and braking before advancing the simulation by 0.10 seconds. This gives a repeatable 10 Hz control loop in simulated time.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/mondello/camera.png"><img src="../assets/images/projects/mondello/camera.png" width="1280" height="580" loading="lazy" alt="Vehicle camera image and cropped network input"></a>
+        <figcaption><span class="fig__num">Fig. 2.</span> The camera image and the cropped RGB input used for inference.</figcaption>
+      </figure>
+      <h2>Seeing the network respond</h2>
+      <p>I exported intermediate MATLAB activations so I could inspect the four convolutional stages alongside the camera input. The replay also shows the actual learned connections in the dense prediction head: 64 image features and one speed input feed 16 fused features and a steering output.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/mondello/features.png"><img src="../assets/images/projects/mondello/features.png" width="1000" height="440" loading="lazy" alt="Recorded convolutional feature maps from the steering network"></a>
+        <figcaption><span class="fig__num">Fig. 3.</span> Feature maps exported from actual network inference.</figcaption>
+      </figure>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/mondello/network.png"><img src="../assets/images/projects/mondello/network.png" width="1500" height="1250" loading="lazy" alt="Learned dense connections from image features and speed to steering"></a>
+        <figcaption><span class="fig__num">Fig. 4.</span> The dense head contains 1,056 learned connections. Blue and red indicate positive and negative weights; node intensity changes with recorded activity.</figcaption>
+      </figure>
+      <p><a href="mondello-replay.html">Play the interactive replay</a> to move through all 90 snapshots or filter to the strongest connections. Reconstructing the dense head from its extracted weights reproduced the recorded steering outputs with a maximum absolute difference of 3.4 &times; 10<sup>&minus;8</sup>.</p>
+      <h2>Engineering development</h2>
+      <p>I reconstructed a reference line from recorded human position data, smoothed it and repaired sections that crossed the track envelope. I then adjusted tracking lookahead, speed planning and brake response through simulator tests. Each run retained its settings, camera frames and numerical traces for comparison.</p>
+      <p>Profiling showed that camera capture and simulator stepping dominated execution time. Changing the deterministic rendering schedule reduced wall time for a matched 60-second test from 136.95 to 97.91 seconds, a 28.5% reduction in that comparison.</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/mondello/speed.png"><img src="../assets/images/projects/mondello/speed.png" width="1600" height="640" loading="lazy" alt="Actual vehicle speed and planned speed over the recorded section"></a>
+        <figcaption><span class="fig__num">Fig. 5.</span> Target and measured speed for the 90-second recording.</figcaption>
+      </figure>
+      <h2>Technical record</h2>
+      <p>The full report covers the architecture, training-data provenance, network structure, control integration, test results and numerical checks. The recorded run demonstrates the combined controller on a timed section; the earlier three-lap result provides separate evidence of repeatable lap completion.</p>
+      <p><a href="../assets/reports/Mondello_Technical_Report.pdf">Download the technical report</a>. The report was written with AI assistance to consolidate the code and experimental records.</p>
+    </article>
+    <nav class="pager" aria-label="More projects">
+      <a href="project1.html"><span class="pager__label">Previous project</span><span class="pager__title">Filament spool re-wind machine</span></a>
+      <a href="project2.html"><span class="pager__label">Next project</span><span class="pager__title">Autonomous taxi robot</span></a>
+    </nav>
+  </main>
+  <dialog class="lightbox" aria-label="Enlarged figure">
+    <img alt="">
+    <div class="lightbox__bar">
+      <p class="lightbox__caption"></p>
+      <button class="lightbox__close" type="button">Close</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span data-year>2026</span> Hubert Kamiński</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>
