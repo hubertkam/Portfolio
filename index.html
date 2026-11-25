@@ -24,6 +24,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#reports">Reports</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#about">About</a></li>
@@ -158,8 +159,40 @@
         </li>
       </ol>
 
-      <h3 class="subsection-title" id="other-projects">Other projects</h3>
+      <h3 class="subsection-title" id="more-projects">More projects</h3>
+      <ul class="others others--two" role="list">
+        <li class="others__item">
+          <figure class="others__figure"><a href="projects/drop-tower.html"><img src="assets/images/projects/lc-model.jpg" width="492" height="360" loading="lazy" alt="Finished model drop tower ride with a red laser-cut tower, a lift and a white curved track"></a></figure>
+          <h4 class="others__title"><a href="projects/drop-tower.html">Model drop tower ride</a></h4>
+          <p class="others__meta">Leaving Certificate Engineering, 2024, graded H1 · SolidWorks, 3D printing, micro:bit</p>
+          <p>My Leaving Cert Engineering project and my first SolidWorks design: a model drop tower ride with a laser-cut tower, a 3D-printed track, a lift, a micro:bit-controlled release and a friction brake. I stress-tested the track in SolidWorks Simulation and tested every mechanism.</p>
+          <a class="more-link" href="projects/drop-tower.html">Read the write-up</a>
+        </li>
+        <li class="others__item">
+          <figure class="others__figure"><a href="projects/multibody.html"><img src="assets/images/projects/o-multibody.png" width="525" height="598" loading="lazy" alt="MATLAB animation frame of a four-link pendulum chain with its traced path and energy readout"></a></figure>
+          <h4 class="others__title"><a href="projects/multibody.html">2D multibody dynamics simulator</a></h4>
+          <p class="others__meta">Personal, 2026 · MATLAB</p>
+          <p>A MATLAB script that assembles rigid bodies and joints into equations of motion, integrates them with ode113 and renders the result as an animation. Joint constraints are held with Baumgarte stabilisation. I tested it on pendulums and linked chains of up to four bodies, where total energy drifted by less than one part in a billion over eight simulated seconds, and extended it to two-body gravity with collision detection.</p>
+          <a class="more-link" href="projects/multibody.html">Read the write-up</a>
+        </li>
+        <li class="others__item">
+          <figure class="others__figure"><a href="projects/step-counter.html"><img src="assets/images/projects/o-microbit-code.png" width="715" height="535" loading="lazy" alt="MakeCode block program for the micro:bit step counter"></a></figure>
+          <h4 class="others__title"><a href="projects/step-counter.html">Micro:bit step counter with Python analysis</a></h4>
+          <p class="others__meta">Leaving Certificate Computer Science, 2024 · micro:bit, Python</p>
+          <p>A micro:bit step counter that logs daily steps, with a Python program that validates the exported CSV data, fits a linear trend to predict future step counts, and scores sleep and mood inputs to give wellbeing feedback with bar and pie charts.</p>
+          <a class="more-link" href="projects/step-counter.html">Read the write-up</a>
+        </li>
+      </ul>
+
+      <h3 class="subsection-title" id="other-projects">Smaller builds</h3>
       <ul class="others" role="list">
+        <li class="others__item">
+          <figure class="others__figure"><a href="projects/sustainable-spaces.html"><img src="assets/images/projects/o-sustainable-spaces.png" width="856" height="609" loading="lazy" alt="SolidWorks A3 drawing of a circular green-roofed shelter with four entrances, a central pond, section views and a materials table"></a></figure>
+          <h4 class="others__title"><a href="projects/sustainable-spaces.html">Sustainable Spaces shelter</a></h4>
+          <p class="others__meta">Academic, ATU Sligo, 2026 · SolidWorks</p>
+          <p>A concept design for a sustainable outdoor shelter: a green-roofed structure with four hexagon-shaped entrances, seating inside and a central pond with glass underneath so people can look into it. The roof catches rainwater over 8.22&nbsp;m² and feeds tanks holding 10,480&nbsp;litres, with a drainage system for overflow. I produced the full drawing, including section views and a materials schedule: granite flooring, a low-carbon steel frame and foam seating.</p>
+          <a class="more-link" href="projects/sustainable-spaces.html">Read the write-up</a>
+        </li>
         <li class="others__item">
           <figure class="others__figure"><a href="assets/images/projects/o-turbofan.jpg"><img src="assets/images/projects/o-turbofan.jpg" width="850" height="638" loading="lazy" alt="CATIA V5 model of a turbofan engine with a spinner, large orange fan blades, rows of compressor and turbine blades along the shaft, and a conical exhaust nozzle"></a></figure>
           <h4 class="others__title">Turbofan engine model</h4>
@@ -179,30 +212,32 @@
           <p>A turbine disk built in Part Design: a stepped hub with a bolt circle around the central bore, and a ring of curved aerofoil blades patterned around the rim.</p>
         </li>
         <li class="others__item">
-          <figure class="others__figure"><a href="assets/images/projects/o-sustainable-spaces.png"><img src="assets/images/projects/o-sustainable-spaces.png" width="856" height="609" loading="lazy" alt="SolidWorks A3 drawing of a circular green-roofed shelter with four entrances, a central pond, section views and a materials table"></a></figure>
-          <h4 class="others__title">Sustainable Spaces shelter</h4>
-          <p class="others__meta">Academic, ATU Sligo, 2026 · SolidWorks</p>
-          <p>A concept design for a sustainable outdoor shelter: a green-roofed structure with four hexagon-shaped entrances, seating inside and a central pond with glass underneath so people can look into it. The roof catches rainwater over 8.22&nbsp;m² and feeds tanks holding 10,480&nbsp;litres, with a drainage system for overflow. I produced the full drawing, including section views and a materials schedule: granite flooring, a low-carbon steel frame and foam seating.</p>
-        </li>
-        <li class="others__item">
           <figure class="others__figure"><a href="assets/images/projects/o-rc-car.jpg"><img src="assets/images/projects/o-rc-car.jpg" width="637" height="377" loading="lazy" alt="Small 3D-printed RC car with a micro:bit, servo steering, a DC drive motor and battery pack"></a></figure>
           <h4 class="others__title">Micro:bit RC car</h4>
           <p class="others__meta">Personal, 2026, ongoing · SolidWorks, 3D printing, micro:bit, Python</p>
           <p>A small remote-controlled car I designed in SolidWorks and 3D printed, including the chassis, wheels, axle and servo-driven steering linkage. A micro:bit drives the motor and steering servo, and a Python script on a laptop reads the arrow keys and sends drive and steering commands over a serial link.</p>
         </li>
+      </ul>
+    </section>
+
+    <!-- Reports -->
+    <section class="section wrap" id="reports" aria-labelledby="reports-title">
+      <h2 class="section__title" id="reports-title">Reports</h2>
+      <p class="section__lede">Two examples of technical reports I have written at ATU Sligo. Both open as PDFs.</p>
+      <ul class="others others--two" role="list">
         <li class="others__item">
-          <figure class="others__figure"><a href="projects/multibody.html"><img src="assets/images/projects/o-multibody.png" width="525" height="598" loading="lazy" alt="MATLAB animation frame of a four-link pendulum chain with its traced path and energy readout"></a></figure>
-          <h4 class="others__title"><a href="projects/multibody.html">2D multibody dynamics simulator</a></h4>
-          <p class="others__meta">Personal, 2026 · MATLAB</p>
-          <p>A MATLAB script that assembles rigid bodies and joints into equations of motion, integrates them with ode113 and renders the result as an animation. Joint constraints are held with Baumgarte stabilisation. I tested it on pendulums and linked chains of up to four bodies, where total energy drifted by less than one part in a billion over eight simulated seconds, and extended it to two-body gravity with collision detection.</p>
-          <a class="more-link" href="projects/multibody.html">Read the write-up</a>
+          <figure class="others__figure"><a href="assets/reports/airfoil-cfd-report-hubert-kaminski.pdf"><img src="assets/images/projects/r-airfoil.jpg" width="900" height="692" loading="lazy" alt="Ansys Fluent velocity contour around a NACA 0012 airfoil"></a></figure>
+          <h4 class="others__title"><a href="assets/reports/airfoil-cfd-report-hubert-kaminski.pdf">CFD of a NACA 0012 airfoil</a></h4>
+          <p class="others__meta">Dynamic Modelling and Simulation, ATU Sligo, 2026 · Ansys Fluent · 21 pages</p>
+          <p>A 2D turbulent-flow simulation of a NACA 0012 airfoil at a Reynolds number of 6 million and seven angles of attack from −15.9° to +16.4°. It took seven mesh attempts to reach a structured 200,000-cell mesh with a maximum wall y⁺ of 0.59. The lift coefficients matched experimental data with a mean absolute error of 5.8%, and the lift-curve slope agreed to within 1.4%.</p>
+          <a class="more-link" href="assets/reports/airfoil-cfd-report-hubert-kaminski.pdf">Read the report (PDF, 3.3&nbsp;MB)</a>
         </li>
         <li class="others__item">
-          <figure class="others__figure"><a href="projects/step-counter.html"><img src="assets/images/projects/o-microbit-code.png" width="715" height="535" loading="lazy" alt="MakeCode block program for the micro:bit step counter"></a></figure>
-          <h4 class="others__title"><a href="projects/step-counter.html">Micro:bit step counter with Python analysis</a></h4>
-          <p class="others__meta">Leaving Certificate Computer Science, 2024 · micro:bit, Python</p>
-          <p>A micro:bit step counter that logs daily steps, with a Python program that validates the exported CSV data, fits a linear trend to predict future step counts, and scores sleep and mood inputs to give wellbeing feedback with bar and pie charts.</p>
-          <a class="more-link" href="projects/step-counter.html">Read the write-up</a>
+          <figure class="others__figure"><a href="assets/reports/mfi-lab-report-hubert-kaminski.pdf"><img src="assets/images/projects/r-mfi.jpg" width="1156" height="1295" loading="lazy" alt="Labelled cross-section drawing of an extrusion plastometer with a 2.16 kg load, heated barrel and capillary die"></a></figure>
+          <h4 class="others__title"><a href="assets/reports/mfi-lab-report-hubert-kaminski.pdf">Melt flow index of a TPU</a></h4>
+          <p class="others__meta">Materials and Processes 301, ATU Sligo, 2026 · lab report · 19 pages</p>
+          <p>A lab report on measuring the melt flow index of Desmopan 192 thermoplastic polyurethane to ISO 1133-1. The result was 3.40&nbsp;g/10&nbsp;min at 200&nbsp;°C and 2.16&nbsp;kg, with a coefficient of variation of 3.97% and a 95% confidence interval of 3.23–3.57&nbsp;g/10&nbsp;min. The report checks a procedure change our group made against the standard and recommends improvements to the lab method.</p>
+          <a class="more-link" href="assets/reports/mfi-lab-report-hubert-kaminski.pdf">Read the report (PDF, 1.7&nbsp;MB)</a>
         </li>
       </ul>
     </section>
@@ -275,7 +310,7 @@
           <div>
             <h4 class="cv__role">Leaving Certificate</h4>
             <p class="cv__org">Coola Post Primary School, Riverstown</p>
-            <ul class="cv__points"><li>513 points, including a H1 in Engineering.</li></ul>
+            <ul class="cv__points"><li>513 points, including a H1 in Engineering for a <a href="projects/drop-tower.html">model drop tower ride</a>.</li></ul>
           </div>
         </li>
       </ol>

@@ -25,6 +25,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <ul>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#reports">Reports</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#skills">Skills</a></li>
           <li><a href="../index.html#about">About</a></li>
@@ -35,7 +36,7 @@
   </header>
 
   <main id="main" class="wrap">
-    <a class="back-link" href="../index.html#other-projects">All projects</a>
+    <a class="back-link" href="../index.html#more-projects">All projects</a>
 
     <section class="project-sheet sheet" aria-labelledby="project-title">
       <div class="sheet__frame">
@@ -86,13 +87,31 @@
       </figure>
       </div>
 
+      <h2>Testing</h2>
+      <p>I tested the scoring with planned inputs, including invalid ones such as 25 hours of sleep, and recorded the expected and actual result for each (Fig.&nbsp;5). The “what if” questions work the same way: fixed inputs are run through the scoring and feedback functions and the advice is printed (Fig.&nbsp;6).</p>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-tests.png"><img src="../assets/images/projects/o-steps-tests.png" width="743" height="129" loading="lazy" alt="Test table with columns for test, input, actual, expected and pass or fail: sleep 25 gives invalid input, happiness 8 gives +3, steps 8001 gives +5, all marked pass"></a>
+        <figcaption><span class="fig__num">Fig. 5</span> My test table for the wellbeing scoring.</figcaption>
+      </figure>
+      <figure class="fig">
+        <a class="fig__frame" href="../assets/images/projects/o-steps-whatif.png"><img src="../assets/images/projects/o-steps-whatif.png" width="678" height="636" loading="lazy" alt="Python code for the get_feedback function followed by two what-if questions with fixed sleep, steps and happiness values"></a>
+        <figcaption><span class="fig__num">Fig. 6</span> The feedback function and two “what if” questions.</figcaption>
+      </figure>
+
       <h2>Looking back</h2>
-      <p>Re-running the code for this page, I found a bug in the scoring: values just below the top band score zero (7–8 hours of sleep, happiness of 7–8, and 7,000–8,000 steps), because each check uses “less than” and “greater than” but nothing covers the range in between. That is part of why happiness looks so weak in Figure 4. Today I would close those gaps, weight sleep and happiness above step count, and test the edge cases properly.</p>
+      <p>Re-running the code for this page, I found a bug in the scoring: values just below the top band score zero (7–8 hours of sleep, happiness of 7–8, and 7,000–8,000 steps), because each check uses “less than” and “greater than” but nothing covers the range in between. That is part of why happiness looks so weak in Figure 4. My own test table missed it: it records a happiness of 8 as scoring +3 and passing, but the code returns 0 for that input, so that test should have failed. Today I would close those gaps, weight sleep and happiness above step count, and test the edge cases properly.</p>
+
+      <h2>Source files</h2>
+      <ul>
+        <li><a href="../assets/downloads/step-counter/step_counter_analysis.py" download>Python analysis and wellbeing model</a> (.py, 16&nbsp;KB)</li>
+        <li><a href="../assets/downloads/step-counter/microbit-step-counter.hex" download>micro:bit program</a> (.hex, 1.3&nbsp;MB, opens in MakeCode)</li>
+        <li><a href="../assets/downloads/step-counter/sample_steps.csv" download>Sample step log</a> and <a href="../assets/downloads/step-counter/random_wellbeing_data.csv" download>random wellbeing dataset</a> (.csv)</li>
+      </ul>
     </article>
 
     <nav class="pager" aria-label="More projects">
-      <a href="../index.html#other-projects"><span class="pager__label">Back to</span><span class="pager__title">All projects</span></a>
-      <a href="multibody.html"><span class="pager__label">Another project</span><span class="pager__title">2D multibody dynamics simulator</span></a>
+      <a href="multibody.html"><span class="pager__label">Previous project</span><span class="pager__title">2D multibody dynamics simulator</span></a>
+      <a href="drop-tower.html"><span class="pager__label">Next project</span><span class="pager__title">Model drop tower ride</span></a>
     </nav>
   </main>
 

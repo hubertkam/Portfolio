@@ -195,6 +195,7 @@ ul[role="list"] { list-style: none; padding: 0; }
 
 /* ---------- Other projects ---------- */
 .others { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 1.25rem clamp(1.25rem, 3vw, 2.25rem); }
+.others--two { grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr)); }
 .others__item { border-top: 1px solid var(--ink); padding-top: 1rem; }
 .others__figure { margin: 0 0 0.75rem; background: var(--sheet); border: 1px solid var(--ink); padding: 0.5rem; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; }
 .others__figure a { display: contents; }
